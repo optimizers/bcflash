@@ -10,7 +10,7 @@ that is essentially a Matlab implementation of <a href="https://www.mcs.anl.gov/
 
 ## Installation
 
-BCFLASH uses the <a href="https://https://github.com/optimizers/model">optimizers/model</a> to define the optimization problems.
+BCFLASH uses the <a href="https://github.com/optimizers/model">optimizers/model</a> to define the optimization problems.
 
 Once the model library is installed, then installing BCFLASH simply involves cloning this repository and adding bcflash.m to your path.
 
