@@ -41,6 +41,7 @@ classdef bcflash
       maxiter        % maximum number of iterations
       maxcgiter      % maximum number of CG iterations per Newton step
       min_radius     % Minimum trust region radius
+      callback       % function called at the end of each iteration
       exit_user_only % If true, solver stops only if post_iteration returns 1
    end
    
@@ -106,7 +107,7 @@ classdef bcflash
          p.addParameter('fid', 1);
          p.addParameter('exit_user_only', false);
          p.addParameter('callback', ...
-             @(x,y,z,w) self.post_iteration(x,y,z,w), ...
+             @(x,y,z,w) bcflash.post_iteration(x,y,z,w), ...
              @(f) isa(f, 'function_handle'));
          p.parse(varargin{:});
 
@@ -128,6 +129,7 @@ classdef bcflash
          self.verbose = p.Results.verbose;
          self.fid = p.Results.fid;
          self.exit_user_only = p.Results.exit_user_only;
+         self.callback = p.Results.callback;
       end
       
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -292,7 +294,7 @@ classdef bcflash
             % ---------------------------------------------------------
             % Post-iteration function.
             % ---------------------------------------------------------
-            [self, cflag] = self.post_iteration(x, cgits, successful);
+            [self, cflag] = self.callback(self, x, cgits, successful);
             if cflag == self.EXIT_RESTART
                % The user may have redefined the objective function.
                % Re-evaluate the objective and gradient.
@@ -327,14 +329,6 @@ classdef bcflash
          info.cgiter = self.cgiters;
          
       end % function solve
-      
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%      
-
-      function [self, flag] = post_iteration(self, x, cgits, successful) %#ok<INUSD>
-         % User callback. This routine does nothing by default, but may be
-         % overloaded by the user to implement specific functionality.
-         flag = 0;
-      end
       
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1094,6 +1088,12 @@ classdef bcflash
          end
          
       end % function trqsol
+      
+      function [self, flag] = post_iteration(self, x, cgits, successful) %#ok<INUSD>
+         % User callback. This routine does nothing by default, but may be
+         % overloaded by the user to implement specific functionality.
+         flag = 0;
+      end
       
    end % methods(Static)
    
