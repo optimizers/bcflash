@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Input/Output &mdash; BCFLASH 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="prev" title="Installation and Basic Usage" href="installation-usage.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> BCFLASH
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation-usage.html">Installation and Basic Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Input/Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#input">Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output">Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exit-codes">Exit Codes</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BCFLASH</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Input/Output</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/input-output.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="input-output">
+<h1>Input/Output<a class="headerlink" href="#input-output" title="Permalink to this headline">¶</a></h1>
+<p>Arguments are passed into the solver constructor. Optional argumentas are passed in as Matlab&#8217;s <code class="docutils literal"><span class="pre">varargin</span></code> using name-value pairs. For example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">bcflash</span><span class="p">(</span><span class="n">nlp</span><span class="p">,</span> <span class="s1">&#39;maxiter&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;gtolRel&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">8</span><span class="p">);</span>
+<span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">info</span><span class="p">]</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">x0</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="input">
+<h2>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="10%" />
+<col width="20%" />
+<col width="54%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Required</th>
+<th class="head">Default</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>x0</td>
+<td>required</td>
+<td>&nbsp;</td>
+<td>initial point</td>
+</tr>
+<tr class="row-odd"><td>maxiter</td>
+<td>optional</td>
+<td><span class="math">\(10n\)</span></td>
+<td>max number of outer iterations</td>
+</tr>
+<tr class="row-even"><td>maxcgiter</td>
+<td>optional</td>
+<td><span class="math">\(n\)</span></td>
+<td>max CG iterations for subproblem</td>
+</tr>
+<tr class="row-odd"><td>cgtol</td>
+<td>optional</td>
+<td><span class="math">\(0.1\)</span></td>
+<td>subproblem residual tolerance</td>
+</tr>
+<tr class="row-even"><td>fatol</td>
+<td>optional</td>
+<td><span class="math">\(0\)</span></td>
+<td>min allowable abs. function reduction</td>
+</tr>
+<tr class="row-odd"><td>frtol</td>
+<td>optional</td>
+<td><span class="math">\(10^{-12}\)</span></td>
+<td>min allowable rel. function reduction</td>
+</tr>
+<tr class="row-even"><td>min_radius</td>
+<td>optional</td>
+<td><span class="math">\(10^{-16}\)</span></td>
+<td>min trust-region radius</td>
+</tr>
+<tr class="row-odd"><td>gtolRel</td>
+<td>optional</td>
+<td><span class="math">\(10^{-6}\)</span></td>
+<td>relative gradient tolerance</td>
+</tr>
+<tr class="row-even"><td>gtolAbs</td>
+<td>optional</td>
+<td><span class="math">\(10^{-6}\)</span></td>
+<td>absolute gradient tolerance</td>
+</tr>
+<tr class="row-odd"><td>stop_tol</td>
+<td>optional</td>
+<td>[]</td>
+<td>if empty, overwritten by gtolRel and gtolAbs</td>
+</tr>
+<tr class="row-even"><td>fmin</td>
+<td>optional</td>
+<td><span class="math">\(-10^{32}\)</span></td>
+<td>min allowable function value</td>
+</tr>
+<tr class="row-odd"><td>mu0</td>
+<td>optional</td>
+<td><span class="math">\(0.01\)</span></td>
+<td>sufficient decrease parameter</td>
+</tr>
+<tr class="row-even"><td>verbose</td>
+<td>optional</td>
+<td>1</td>
+<td>display log?</td>
+</tr>
+<tr class="row-odd"><td>fid</td>
+<td>optional</td>
+<td>1</td>
+<td>output file</td>
+</tr>
+<tr class="row-even"><td>callback</td>
+<td>optional</td>
+<td>[]</td>
+<td>see below</td>
+</tr>
+<tr class="row-odd"><td>exit_user_only</td>
+<td>optional</td>
+<td>0</td>
+<td>see below</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p class="first">callback: A callback function that gets called at the end of every iteration, which allows custom monitoring and logging, as well as the ability to modify the underlying problem mid-solve. It has the function signature</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="p">]</span> <span class="o">=</span> <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cgits</span><span class="p">,</span> <span class="n">successful</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where the inputs are:</p>
+<ul class="simple">
+<li>x: the current iterate,</li>
+<li>cgits: the total number of CG iterations so far,</li>
+<li>successful: boolean flag indicating if trust-region step was accepted or rejected.</li>
+</ul>
+<p>The output (other than bcflash itself) is <code class="docutils literal"><span class="pre">flag</span></code>, where if:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">flag=0</span></code>: solver continues uninterrupted,</li>
+<li><code class="docutils literal"><span class="pre">flag=1</span></code>: solver immediately terminates,</li>
+<li><code class="docutils literal"><span class="pre">flag=8</span></code>: the underlying optimization has been modified. The solver takes this into account and continues.</li>
+</ul>
+</li>
+<li><p class="first">exit_user_only: Ignore eFlag=1,7, so that termination occurs only if callback returns 1, or an error occurs.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<p>BCFLASH returns the latest iterate, <code class="docutils literal"><span class="pre">x</span></code>, and a struct, <code class="docutils literal"><span class="pre">info</span></code>, with the following fields:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>eFlag</td>
+<td>exit flag (see below)</td>
+</tr>
+<tr class="row-odd"><td>msg</td>
+<td>output message</td>
+</tr>
+<tr class="row-even"><td>obj</td>
+<td>final objective value</td>
+</tr>
+<tr class="row-odd"><td>gpnorm</td>
+<td>norm of projected gradient</td>
+</tr>
+<tr class="row-even"><td>iters</td>
+<td>total number of outer iterations</td>
+</tr>
+<tr class="row-odd"><td>cgiters</td>
+<td>total number of CG iterations</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="exit-codes">
+<h2>Exit Codes<a class="headerlink" href="#exit-codes" title="Permalink to this headline">¶</a></h2>
+<p>BCFLASH terminates when one of the following conditions is met:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>eFlag = 1 (Optimal solution found)</dt>
+<dd><p class="first last"><span class="math">\(\|P(\nabla f(x_k)\| \le \mbox{gtolAbs} + \|\nabla f(x_0)\| \cdot \mbox{gtolRel}\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eFlag = 3 (Unbounded below)</dt>
+<dd><p class="first last"><span class="math">\(f(x_k) \le \mbox{fmin}\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eFlag = 4 (Absolute function tolerance)</dt>
+<dd><p class="first last">predicted or actual reduction less than fatol</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eFlag = 5 (Relative function tolerance)</dt>
+<dd><p class="first last">predicted or actual reduction less than <span class="math">\(\mbox{frtol} \cdot |f(x_k)|\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eFlag = 6 (Trust region radius too small)</dt>
+<dd><p class="first last">trust region radius less than min_radius</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eFlag = 2 (Too many iterations)</dt>
+<dd><p class="first last">exceeded number of outer iterations</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>eFlag = 7 (User requested exit)</dt>
+<dd><p class="first last">callback returned <code class="docutils literal"><span class="pre">flag=1</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="installation-usage.html" class="btn btn-neutral" title="Installation and Basic Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Michael Friedlander, Dominique Orban, and Ron Estrin.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: ''
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
