@@ -271,11 +271,11 @@
 <p>The output (other than bcflash itself) is <code class="docutils literal"><span class="pre">flag</span></code>, where if:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">flag=0</span></code>: solver continues uninterrupted,</li>
-<li><code class="docutils literal"><span class="pre">flag=1</span></code>: solver immediately terminates,</li>
+<li><code class="docutils literal"><span class="pre">flag=7</span></code>: solver immediately terminates,</li>
 <li><code class="docutils literal"><span class="pre">flag=8</span></code>: the underlying optimization has been modified. The solver takes this into account and continues.</li>
 </ul>
 </li>
-<li><p class="first">exit_user_only: Ignore eFlag=1,7, so that termination occurs only if callback returns 1, or an error occurs.</p>
+<li><p class="first">exit_user_only: Ignore eFlag=1,2, so that termination occurs only if callback returns 1, or an error occurs.</p>
 </li>
 </ul>
 </div>

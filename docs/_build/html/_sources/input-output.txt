@@ -44,10 +44,10 @@ exit_user_only optional 0                see below
   The output (other than bcflash itself) is ``flag``, where if:
 
   * ``flag=0``: solver continues uninterrupted,
-  * ``flag=1``: solver immediately terminates,
+  * ``flag=7``: solver immediately terminates,
   * ``flag=8``: the underlying optimization has been modified. The solver takes this into account and continues.
 
-* exit_user_only: Ignore eFlag=1,7, so that termination occurs only if callback returns 1, or an error occurs.
+* exit_user_only: Ignore eFlag=1,2, so that termination occurs only if callback returns 1, or an error occurs.
 
 Output
 ------
