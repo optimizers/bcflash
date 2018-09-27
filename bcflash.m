@@ -134,7 +134,7 @@ classdef bcflash
       
       %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       
-      function [x, info] = solve(self, x)
+      function [x, info, self] = solve(self, x)
 
          [self, x, f, g, delta] = self.pre_solve(x);
 
