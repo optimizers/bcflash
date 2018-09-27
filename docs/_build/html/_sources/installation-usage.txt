@@ -27,3 +27,5 @@ Basic Usage
 * ``fobj(x)``: function value at current point, :math:`f(x)`.
 * ``gobj(x)``: gradient at current point, :math:`\nabla f(x)`.
 * ``hlagprod(x,y,v)``: Product with Lagrangian Hessian at current point, :math:`\nabla^2_x L(x,y)\cdot v`. Because the only constraints currently supported are bound constraints, this is equivalent to :math:`\nabla^2 f(x) \cdot v`.
+
+**Warning**: BCFLASH will ignore non-bound constraints implemented in nlpmodel. Therefore, you may pass optimization problems with such constraints (so that ``nlp.m > 0``) but the constraints will be omitted.

@@ -1,10 +1,10 @@
 Input/Output
 ============
-Arguments are passed into the solver constructor. Optional argumentas are passed in as Matlab's ``varargin`` using name-value pairs. For example:
+Arguments are passed into the solver constructor. Optional arguments are passed in as Matlab's ``varargin`` using name-value pairs. For example:
 ::
 
 	solver = bcflash(nlp, 'maxiter', 100, 'gtolRel', 1e-8);
-	[x, info] = solver.solve(x0);
+	[x, info, self] = solver.solve(x0);
 
 
 Input
@@ -52,7 +52,7 @@ exit_user_only optional 0                see below
 Output
 ------
 
-BCFLASH returns the latest iterate, ``x``, and a struct, ``info``, with the following fields:
+BCFLASH returns the latest iterate, ``x``, a struct, ``info``, and a bcflash object (itself with updated values), ``self``. ``info`` contains the following fields:
 
 ======= ===========
 Field   Description

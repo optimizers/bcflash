@@ -242,7 +242,7 @@ classdef bcflash
             gc = g;
             
             % Hessian operator at current iterate.
-            Aprod = @(v)self.nlp.hlagprod(x, zeros(0,1), v);
+            Aprod = @(v)self.nlp.hlagprod(x, zeros(self.nlp.m,1), v);
             
             % Cauchy step: s.
             [alphac, s] = self.cauchy(x, gc, Aprod, delta, alphac);
@@ -253,7 +253,7 @@ classdef bcflash
             self.cgiters = self.cgiters + cgits;
             
             % Predicted reduction.
-            As = self.nlp.hlagprod(x, zeros(0,1), s);
+            As = self.nlp.hlagprod(x, zeros(self.nlp.m,1), s);
             prered = -(s'*gc + 0.5*s'*As);
             
             % Compute the objective at the new x.
@@ -358,6 +358,11 @@ classdef bcflash
 
       function [self, x, f, g, delta] = pre_solve(self, x)
          
+         % Check whether problem has non-bound constraints
+         if self.nlp.m > 0
+            warning('BCFLASH will ignore non-bound constraints.')
+         end
+          
          xl = self.nlp.bL;
          xu = self.nlp.bU;
          

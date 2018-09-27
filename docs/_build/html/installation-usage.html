@@ -175,6 +175,7 @@
 <li><code class="docutils literal"><span class="pre">gobj(x)</span></code>: gradient at current point, <span class="math">\(\nabla f(x)\)</span>.</li>
 <li><code class="docutils literal"><span class="pre">hlagprod(x,y,v)</span></code>: Product with Lagrangian Hessian at current point, <span class="math">\(\nabla^2_x L(x,y)\cdot v\)</span>. Because the only constraints currently supported are bound constraints, this is equivalent to <span class="math">\(\nabla^2 f(x) \cdot v\)</span>.</li>
 </ul>
+<p><strong>Warning</strong>: BCFLASH will ignore non-bound constraints implemented in nlpmodel. Therefore, you may pass optimization problems with such constraints (so that <code class="docutils literal"><span class="pre">nlp.m</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>) but the constraints will be omitted.</p>
 </div>
 </div>
 

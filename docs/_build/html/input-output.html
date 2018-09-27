@@ -153,9 +153,9 @@
             
   <div class="section" id="input-output">
 <h1>Input/Output<a class="headerlink" href="#input-output" title="Permalink to this headline">¶</a></h1>
-<p>Arguments are passed into the solver constructor. Optional argumentas are passed in as Matlab&#8217;s <code class="docutils literal"><span class="pre">varargin</span></code> using name-value pairs. For example:</p>
+<p>Arguments are passed into the solver constructor. Optional arguments are passed in as Matlab&#8217;s <code class="docutils literal"><span class="pre">varargin</span></code> using name-value pairs. For example:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">solver</span> <span class="o">=</span> <span class="n">bcflash</span><span class="p">(</span><span class="n">nlp</span><span class="p">,</span> <span class="s1">&#39;maxiter&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;gtolRel&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">8</span><span class="p">);</span>
-<span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">info</span><span class="p">]</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">x0</span><span class="p">);</span>
+<span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="bp">self</span><span class="p">]</span> <span class="o">=</span> <span class="n">solver</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">x0</span><span class="p">);</span>
 </pre></div>
 </div>
 <div class="section" id="input">
@@ -281,7 +281,7 @@
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
-<p>BCFLASH returns the latest iterate, <code class="docutils literal"><span class="pre">x</span></code>, and a struct, <code class="docutils literal"><span class="pre">info</span></code>, with the following fields:</p>
+<p>BCFLASH returns the latest iterate, <code class="docutils literal"><span class="pre">x</span></code>, a struct, <code class="docutils literal"><span class="pre">info</span></code>, and a bcflash object (itself with updated values), <code class="docutils literal"><span class="pre">self</span></code>. <code class="docutils literal"><span class="pre">info</span></code> contains the following fields:</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="18%" />
