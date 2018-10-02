@@ -38,7 +38,7 @@ exit_user_only optional 0                see below
   where the inputs are:
 
   * x: the current iterate,
-  * cgits: the total number of CG iterations so far,
+  * cgits: the number of CG iterations performed in current trust-region step,
   * successful: boolean flag indicating if trust-region step was accepted or rejected.
 
   The output (other than bcflash itself) is ``flag``, where if:
