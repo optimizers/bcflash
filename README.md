@@ -10,7 +10,7 @@ that is essentially a Matlab implementation of <a href="https://www.mcs.anl.gov/
 
 ## Documentation
 
-Hosted on <a href="https://bcflash.readthedocs.io/en/latest/input-output.html">ReadTheDocs</a>.
+Hosted on <a href="https://bcflash.readthedocs.io/en/latest/index.html">ReadTheDocs</a>.
 
 ## Installation
 
