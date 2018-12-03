@@ -8,6 +8,10 @@ BCFLASH is an optimization solver for
 
 that is essentially a Matlab implementation of <a href="https://www.mcs.anl.gov/~more/tron/">TRON</a>.
 
+## Documentation
+
+Hosted on <a href="https://bcflash.readthedocs.io/en/latest/input-output.html">ReadTheDocs</a>.
+
 ## Installation
 
 BCFLASH uses the <a href="https://github.com/optimizers/model">optimizers/model</a> to define the optimization problems.
