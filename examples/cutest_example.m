@@ -2,7 +2,7 @@
 %
 % PREREQUISITES:
 %    Requires that cutest-mirror be installed from here:
-%       https://github.com/optimizers/cutest-mirror
+%       https://github.com/ralna/CUTEst
 %    and that CUTEst problems are compiled
 %
 %    Requires that directory containing +model/ is added to Matlab's path
